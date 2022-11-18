@@ -7,7 +7,7 @@
 		<title>Document</title>
 	</head>
 	<body>
-		<!-- Methods and Derivatives -->
+		<!-- Methods and More Derivatives -->
 		<div id="app">
 			<h1>counter</h1>
 			<p>{{count}}</p>
@@ -16,7 +16,7 @@
 			<br />
 			<div>
 				<label for="incrementAmount">Increment Amount By:</label>
-				<input type="number" v-bind:value="incrementAmount" v-on:input="changeIncrementAmount" />
+				<input type="number" v-model="incrementAmount" />
 			</div>
 		</div>
 	</body>
@@ -28,9 +28,6 @@
 				incrementAmount: 7,
 			}),
 			methods: {
-				changeIncrementAmount(event) {
-					this.incrementAmount = Number(event.target.value);
-				},
 				incrementCount() {
 					this.count += this.incrementAmount;
 				},
