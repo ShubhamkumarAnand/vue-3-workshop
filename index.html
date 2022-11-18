@@ -29,7 +29,7 @@
 			}),
 			methods: {
 				changeIncrementAmount(event) {
-					this.incrementAmount = event.target.value;
+					this.incrementAmount = Number(event.target.value);
 				},
 				incrementCount() {
 					this.count += this.incrementAmount;
