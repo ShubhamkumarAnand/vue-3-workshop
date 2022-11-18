@@ -9,8 +9,16 @@
 	<body>
 		<h1>Hello To Vue Mastery!</h1>
 		<div id="app">
-			<p v-if="message.length % 2==0">Even: {{message}}</p>
+			<p v-if="message.length % 2===0">Even: {{message.toUpperCase()}}</p>
 			<p v-else>Odd: {{message}}</p>
+			<ul v-for="item in listOfNumbers">
+				<li>{{item.name}}</li>
+				<br />
+				<li>{{item.id}}</li>
+				<ul>
+					<li v-for="number in item.list">{{number}}</li>
+				</ul>
+			</ul>
 		</div>
 		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 		<script>
@@ -18,7 +26,14 @@
 			const app = createApp({
 				data() {
 					return {
-						message: 'It Works!',
+						message: 'It Works!!',
+						listOfNumbers: [
+							{ name: 1, id: '8d6f0a8f-cc6c-45f9-82eb-d9e7b1689422', list: [1, 2, 3, 4, 5] },
+							{ name: 2, id: 'b9d9c7c3-6d92-404a-b65a-9f08edd57dea', list: [1, 2, 3, 4, 5] },
+							{ name: 3, id: '94f50bcd-07b2-4a4e-8fa8-97eafe661115', list: [1, 2, 3, 4, 5] },
+							{ name: 4, id: 'b3ac3bd7-cb07-4e17-beaf-58e8f5a664e1', list: [1, 2, 3, 4, 5] },
+							{ name: 5, id: 'eaaceb70-62e9-456e-967c-50bf974b4d0c', list: [1, 2, 3, 4, 5] },
+						],
 					};
 				},
 			});
