@@ -1,10 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body></body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<h1>My Favorite TV Show: Prison Break</h1>
+		<img
+			src="https://m.media-amazon.com/images/M/MV5BMGJlMGIyYzktZjE4Yy00ZmFkLTgxNWQtMjAxNDNmNmRjNDczXkEyXkFqcGdeQXVyMTA3MzQ4MTc0._V1_QL75_UY562_CR5,0,380,562_.jpg"
+			alt="Prison Break"
+		/>
+		<div id="app">
+			<p v-if="listOfCharacters.length===0">There are No Characters</p>
+			<ul v-else>
+				<li v-for="item in listOfCharacters"><h2>{{item.priority}} - {{item.name}}</h2></li>
+			</ul>
+			<h2>
+				<span v-for="(character, index) in listOfCharacters"
+					>{{character.name}}{{index === listOfCharacters.length-1?'':', '}}
+				</span>
+			</h2>
+		</div>
+	</body>
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<script>
+		Vue.createApp({
+			data: () => ({
+				listOfCharacters: [
+					{ priority: 1, name: 'Lincoln Burrows' },
+					{ priority: 2, name: 'Michael Scofield' },
+					{ priority: 3, name: 'Theodore "T-Bag" Bagwell' },
+					{ priority: 4, name: 'Fernando Sucre' },
+					{ priority: 5, name: 'Alexander Mahone' },
+					{ priority: 6, name: 'Brad Bellick' },
+				],
+			}),
+		}).mount('#app');
+	</script>
 </html>
